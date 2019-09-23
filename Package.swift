@@ -12,8 +12,7 @@ let package = Package(
         .library(name: "Theo", targets: ["Theo"])
     ],
     dependencies: [
-        .package(url: "https://github.com/Neo4j-Swift/Bolt-swift.git", from: "5.0.0")
-        /*.package(url: "https://github.com/lukaskubanek/LoremSwiftum.git", .revision("6c6018aec1c61a40c2aa06a68eb843ce42bca262")),*/
+        .package(url: "https://github.com/rubencagnie/Bolt-swift.git", from: "5.0.1")
     ],
     targets: [
         .target(
@@ -21,6 +20,6 @@ let package = Package(
             dependencies: ["Bolt"]),
         .testTarget(
             name: "TheoTests",
-            dependencies: ["Theo" /* "LoremSwiftum" */])
+            dependencies: ["Theo"])
     ]
 )

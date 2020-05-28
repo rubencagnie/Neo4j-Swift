@@ -12,7 +12,7 @@ let package = Package(
         .library(name: "Theo", targets: ["Theo"])
     ],
     dependencies: [
-        .package(url: "https://github.com/apple/swift-nio-transport-services.git", from: "1.1.1"),
+        .package(url: "https://github.com/apple/swift-nio-transport-services.git", from: "1.5.1"),
     ],
     targets: [
         .target(

@@ -1,4 +1,4 @@
-// swift-tools-version:5.0
+// swift-tools-version:5.2
 import PackageDescription
 
 let package = Package(
@@ -12,12 +12,16 @@ let package = Package(
         .library(name: "Theo", targets: ["Theo"])
     ],
     dependencies: [
-        .package(url: "https://github.com/rubencagnie/Bolt-swift.git", from: "5.0.1")
+        .package(path: "./Bolt"),
+        .package(path: "./PackStream")
     ],
     targets: [
         .target(
             name: "Theo",
-            dependencies: ["Bolt"]),
+            dependencies: [
+                .product(name: "Bolt", package: "Bolt"),
+                .product(name: "PackStream", package: "PackStream"),
+            ]),
         .testTarget(
             name: "TheoTests",
             dependencies: ["Theo"])

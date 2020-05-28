@@ -12,16 +12,21 @@ let package = Package(
         .library(name: "Theo", targets: ["Theo"])
     ],
     dependencies: [
-        .package(path: "./Bolt"),
-        .package(path: "./PackStream")
+        .package(url: "https://github.com/apple/swift-nio-transport-services.git", from: "1.1.1"),
     ],
     targets: [
         .target(
-            name: "Theo",
+            name: "PackStream",
+            dependencies: []),
+        .target(
+            name: "Bolt",
             dependencies: [
-                .product(name: "Bolt", package: "Bolt"),
-                .product(name: "PackStream", package: "PackStream"),
-            ]),
+                .product(name: "NIOTransportServices", package: "swift-nio-transport-services"),
+                "PackStream"
+        ]),
+        .target(
+            name: "Theo",
+            dependencies: ["Bolt"]),
         .testTarget(
             name: "TheoTests",
             dependencies: ["Theo"])
